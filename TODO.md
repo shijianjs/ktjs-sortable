@@ -22,11 +22,11 @@ Kotlin 类型，并在浏览器里跑通。
 - [x] jsTest：8 个用例，`./gradlew :ktjs-sortable:jsBrowserTest` 通过
 - [x] demo：overview / playground / api / conventions，中英双语，接 `ktjs-dom-kit` 与 `ktjs-vaadin`
 - [x] docs：intro / getting-started / usage / licensing，中英双语，kit 首页五件套、右侧 TOC 可折叠
-- [x] `pagesSite` 与 Pages 工作流（push 到 main 自动发布）
+- [x] `pagesSite` 产站 + `gh-pages` 分支发布；Pages 工作流暂为手动（站内依赖 kit 的 SNAPSHOT，CI 解析不了）
 - [x] MIT 许可 + `sortablejs` 的 MIT 声明（[guide/licensing](docs/src/jsMain/resources/docs/guide/licensing.md)）
 - [x] `.agents/skills/` 同步（模板副本）
-- [ ] GitHub 仓库创建与首次推送
-- [ ] Pages 打开（`gh api -X POST repos/shijianjs/ktjs-sortable/pages`）
+- [x] GitHub 仓库创建与首次推送（<https://github.com/shijianjs/ktjs-sortable>）
+- [x] Pages：<https://shijianjs.github.io/ktjs-sortable/>（legacy + `gh-pages`，文档根、`/demo/`、`/api/`、`/zh-Hans/` 均 200）
 
 ### 注意事项
 
