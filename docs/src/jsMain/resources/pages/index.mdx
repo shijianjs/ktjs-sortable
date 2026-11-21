@@ -1,0 +1,55 @@
+---
+title: ktjs-sortable
+description: Kotlin/JS wrapper for sortablejs
+hide_table_of_contents: true
+---
+
+import logo from '@site/static/img/ktjs-sortable-logo.png';
+
+{/* The `<ktjs-…>` sections come from the ktjs-docusaurus kit: the Gradle plugin publishes its bundle
+    under `static/ktjs-client/`, and `ClientModule.kt` loads it once the page is hydrated. `href`s stay
+    relative so the same page works under both locale prefixes; `logo` is imported so the URL carries
+    whatever `baseUrl` this site is deployed under. */}
+
+<ktjs-hero logo-src={logo} title="ktjs-sortable" tagline="Kotlin/JS bindings for sortablejs">
+
+<ktjs-action kind="primary" href="intro">Get started</ktjs-action>
+
+<ktjs-action kind="secondary" href="https://shijianjs.github.io/ktjs-sortable/demo/" icon="lucide:list-ordered">Live demo</ktjs-action>
+
+<ktjs-action kind="secondary" href="https://github.com/shijianjs/ktjs-sortable" icon="simple-icons:github">GitHub</ktjs-action>
+
+<ktjs-badge href="https://github.com/shijianjs/ktjs-sortable/blob/main/LICENSE" src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></ktjs-badge>
+
+<ktjs-badge href="https://github.com/shijianjs/ktjs-sortable" src="https://img.shields.io/badge/sortablejs-1.15.7-2A6DF4" alt="Upstream: sortablejs 1.15.7"></ktjs-badge>
+
+<ktjs-badge href="https://github.com/shijianjs/ktjs-sortable" src="https://img.shields.io/badge/Kotlin%2FJS-2.4.21-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin/JS"></ktjs-badge>
+</ktjs-hero>
+
+<ktjs-features section-title="What it wraps" tinted>
+
+<ktjs-feature icon="lucide:hand" title="The Sortable class">`createSortable`, `toArray`, `sort`, `option` and `destroy` — every instance member declared from `src/Sortable.js`, no dynamic calls.</ktjs-feature>
+
+<ktjs-feature icon="lucide:list" title="Options as a builder">`sortableOptions { }` writes only the fields you set; every other field stays `undefined`, so upstream's defaults apply untouched.</ktjs-feature>
+
+<ktjs-feature icon="lucide:radio" title="Eleven typed callbacks">`onStart` → `onMove` → `onSort` → `onEnd`, each with one `SortableEvent`; `onMove` may return `false` to veto a drop.</ktjs-feature>
+
+<ktjs-feature icon="lucide:users" title="Groups with rules">`sortableGroup("board") { pull = …; put = … }` for the object form, while a plain string still normalises to the same shape.</ktjs-feature>
+
+<ktjs-feature icon="lucide:flask-conical" title="Tested against the real library">The module's browser tests build real lists against the bundled `sortablejs`; the demo has its own Playwright suite that reads the order back.</ktjs-feature>
+
+<ktjs-feature icon="lucide:book-open" title="Docs in two languages">This site is a Kotlin/JS module built by ktjs-docusaurus: typed configuration, Markdown pages, English and Chinese.</ktjs-feature>
+
+</ktjs-features>
+
+<ktjs-next-steps section-title="Where to go next">
+
+<ktjs-step href="intro" title="Introduction">What the module contains and how a list fits together.</ktjs-step>
+
+<ktjs-step href="guide/getting-started" title="Getting started">The dependency, and the first draggable list.</ktjs-step>
+
+<ktjs-step href="guide/usage" title="Usage">Options, groups, events, order in and out, and what the wrapper leaves alone.</ktjs-step>
+
+<ktjs-step href="https://shijianjs.github.io/ktjs-sortable/api/" title="API reference">Dokka output for the published module.</ktjs-step>
+
+</ktjs-next-steps>

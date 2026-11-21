@@ -1,0 +1,54 @@
+---
+title: ktjs-sortable
+description: "sortablejs 的 Kotlin/JS 封装"
+hide_table_of_contents: true
+---
+
+import logo from '@site/static/img/ktjs-sortable-logo.png';
+
+{/* `<ktjs-…>` 分区来自 ktjs-docusaurus 的工具箱：Gradle 插件把它的 bundle 放到 `static/ktjs-client/`，
+    `ClientModule.kt` 在页面 hydrate 之后加载它。`href` 写成相对路径，两种 locale 前缀下都能用；
+    `logo` 用 import 取，这样 URL 会带上本站实际的 `baseUrl`。 */}
+
+<ktjs-hero logo-src={logo} title="ktjs-sortable" tagline="sortablejs 的 Kotlin/JS 绑定">
+
+<ktjs-action kind="primary" href="intro">开始阅读</ktjs-action>
+
+<ktjs-action kind="secondary" href="https://shijianjs.github.io/ktjs-sortable/demo/" icon="lucide:list-ordered">在线 demo</ktjs-action>
+
+<ktjs-action kind="secondary" href="https://github.com/shijianjs/ktjs-sortable" icon="simple-icons:github">GitHub</ktjs-action>
+
+<ktjs-badge href="https://github.com/shijianjs/ktjs-sortable/blob/main/LICENSE" src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></ktjs-badge>
+
+<ktjs-badge href="https://github.com/shijianjs/ktjs-sortable" src="https://img.shields.io/badge/sortablejs-1.15.7-2A6DF4" alt="上游：sortablejs 1.15.7"></ktjs-badge>
+
+<ktjs-badge href="https://github.com/shijianjs/ktjs-sortable" src="https://img.shields.io/badge/Kotlin%2FJS-2.4.21-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin/JS"></ktjs-badge>
+</ktjs-hero>
+
+<ktjs-features section-title="封装了什么" tinted>
+
+<ktjs-feature icon="lucide:hand" title="Sortable 类">`createSortable`、`toArray`、`sort`、`option`、`destroy`——每个实例成员都按 `src/Sortable.js` 声明，没有 dynamic 调用。</ktjs-feature>
+
+<ktjs-feature icon="lucide:list" title="选项即构造器">`sortableOptions { }` 只写你设过的字段，其余保持 `undefined`，上游默认值原样生效。</ktjs-feature>
+
+<ktjs-feature icon="lucide:radio" title="十一个带类型的回调">`onStart` → `onMove` → `onSort` → `onEnd`，每个都收到一个 `SortableEvent`；`onMove` 可以返回 `false` 否决落点。</ktjs-feature>
+
+<ktjs-feature icon="lucide:users" title="带规则的分组">对象形式用 `sortableGroup("board") { pull = …; put = … }`，而纯字符串最终也归一化成同一个形状。</ktjs-feature>
+
+<ktjs-feature icon="lucide:flask-conical" title="对真实库测试">模块的浏览器测试对着打包进来的 `sortablejs` 建真列表；demo 另有 Playwright 套件，会把顺序读回来比对。</ktjs-feature>
+
+<ktjs-feature icon="lucide:book-open" title="双语文档">本站由 ktjs-docusaurus 构建：类型化配置、Markdown 页面、中英两版。</ktjs-feature>
+
+</ktjs-features>
+
+<ktjs-next-steps section-title="接下来">
+
+<ktjs-step href="intro" title="简介">模块里有什么，一个列表怎么拼起来。</ktjs-step>
+
+<ktjs-step href="guide/getting-started" title="快速开始">依赖坐标，以及页面上第一个可拖动的列表。</ktjs-step>
+
+<ktjs-step href="guide/usage" title="用法">选项、分组、事件、顺序的读写，以及封装层刻意不碰的部分。</ktjs-step>
+
+<ktjs-step href="https://shijianjs.github.io/ktjs-sortable/api/" title="API 文档">发布模块的 Dokka 产物。</ktjs-step>
+
+</ktjs-next-steps>
