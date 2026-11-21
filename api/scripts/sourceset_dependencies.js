@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":ktjs-sortable/commonMain":[],":ktjs-sortable/jsMain":[":ktjs-sortable/webMain"],":ktjs-sortable/webMain":[":ktjs-sortable/commonMain"]}'

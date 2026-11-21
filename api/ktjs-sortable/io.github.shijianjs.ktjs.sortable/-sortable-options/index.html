@@ -1,0 +1,771 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>SortableOptions</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    ktjs-sortable
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector js-like" data-active="" aria-pressed="true" data-filter=":ktjs-sortable/jsMain">js</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option js-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":ktjs-sortable/jsMain" data-filter=":ktjs-sortable/jsMain">
+                                <span class="checkbox--icon"></span>
+                                js
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    ktjs-sortable
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="ktjs-sortable::io.github.shijianjs.ktjs.sortable/SortableOptions///PointingToDeclaration//-1392619314">
+  <div class="breadcrumbs"><a href="../../index.html">ktjs-sortable</a><span class="delimiter">/</span><a href="../index.html">io.github.shijianjs.ktjs.sortable</a><span class="delimiter">/</span><span class="current">SortableOptions</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Sortable</span><wbr><span><span>Options</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">external </span><span class="token keyword">interface </span><a href="index.html">SortableOptions</a></div><p class="paragraph">The options object upstream reads, plus the callbacks it fires.</p><p class="paragraph">Every field is nullable and starts out <code class="lang-kotlin">undefined</code>, which is what lets upstream's defaults apply. Build one with <a href="../sortable-options.html">sortableOptions</a>. The package ships no <code class="lang-kotlin">.d.ts</code>; these declarations were written from <code class="lang-kotlin">src/Sortable.js</code> and cross-checked against <code class="lang-kotlin">@types/sortablejs</code> 1.15.9 — see the coverage document.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-1399727163%2FProperties%2F-1392619314" anchor-label="animation" id="-1399727163%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="animation.html"><span><span>animation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1399727163%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="animation.html">animation</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Animation duration while sorting, in milliseconds; <code class="lang-kotlin">0</code> means none.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="792957283%2FProperties%2F-1392619314" anchor-label="chosenClass" id="792957283%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="chosen-class.html"><span>chosen</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="792957283%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="chosen-class.html">chosenClass</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-134404869%2FProperties%2F-1392619314" anchor-label="dataIdAttr" id="-134404869%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="data-id-attr.html"><span>data</span><wbr><span>Id</span><wbr><span><span>Attr</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-134404869%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="data-id-attr.html">dataIdAttr</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="100536486%2FProperties%2F-1392619314" anchor-label="delay" id="100536486%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delay.html"><span><span>delay</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="100536486%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="delay.html">delay</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1302153320%2FProperties%2F-1392619314" anchor-label="delayOnTouchOnly" id="1302153320%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delay-on-touch-only.html"><span>delay</span><wbr><span>On</span><wbr><span>Touch</span><wbr><span><span>Only</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1302153320%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="delay-on-touch-only.html">delayOnTouchOnly</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="310366250%2FProperties%2F-1392619314" anchor-label="direction" id="310366250%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="direction.html"><span><span>direction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="310366250%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="direction.html">direction</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-js-any/index.html">JsAny</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">"vertical"</code> / <code class="lang-kotlin">"horizontal"</code>, or a callback; <code class="lang-kotlin">JsAny</code> because upstream accepts both.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1603025867%2FProperties%2F-1392619314" anchor-label="disabled" id="-1603025867%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disabled.html"><span><span>disabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1603025867%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="disabled.html">disabled</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1516712283%2FProperties%2F-1392619314" anchor-label="dragClass" id="-1516712283%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="drag-class.html"><span>drag</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1516712283%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="drag-class.html">dragClass</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1026106844%2FProperties%2F-1392619314" anchor-label="draggable" id="1026106844%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="draggable.html"><span><span>draggable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1026106844%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="draggable.html">draggable</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1035574269%2FProperties%2F-1392619314" anchor-label="dragoverBubble" id="1035574269%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dragover-bubble.html"><span>dragover</span><wbr><span><span>Bubble</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1035574269%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="dragover-bubble.html">dragoverBubble</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2015864266%2FProperties%2F-1392619314" anchor-label="dropBubble" id="-2015864266%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="drop-bubble.html"><span>drop</span><wbr><span><span>Bubble</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2015864266%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="drop-bubble.html">dropBubble</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1147216230%2FProperties%2F-1392619314" anchor-label="easing" id="1147216230%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="easing.html"><span><span>easing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1147216230%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="easing.html">easing</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1621356588%2FProperties%2F-1392619314" anchor-label="emptyInsertThreshold" id="1621356588%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="empty-insert-threshold.html"><span>empty</span><wbr><span>Insert</span><wbr><span><span>Threshold</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1621356588%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="empty-insert-threshold.html">emptyInsertThreshold</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="929906131%2FProperties%2F-1392619314" anchor-label="fallbackClass" id="929906131%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fallback-class.html"><span>fallback</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="929906131%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="fallback-class.html">fallbackClass</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1200824388%2FProperties%2F-1392619314" anchor-label="fallbackOffset" id="-1200824388%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fallback-offset.html"><span>fallback</span><wbr><span><span>Offset</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1200824388%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="fallback-offset.html">fallbackOffset</a><span class="token operator">: </span><a href="../-point/index.html">Point</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-79721490%2FProperties%2F-1392619314" anchor-label="fallbackOnBody" id="-79721490%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fallback-on-body.html"><span>fallback</span><wbr><span>On</span><wbr><span><span>Body</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-79721490%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="fallback-on-body.html">fallbackOnBody</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="599957982%2FProperties%2F-1392619314" anchor-label="fallbackTolerance" id="599957982%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fallback-tolerance.html"><span>fallback</span><wbr><span><span>Tolerance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="599957982%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="fallback-tolerance.html">fallbackTolerance</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1493675079%2FProperties%2F-1392619314" anchor-label="filter" id="-1493675079%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="filter.html"><span><span>filter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1493675079%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="filter.html">filter</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-js-any/index.html">JsAny</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Selector or predicate deciding which elements do not start a drag.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1219817860%2FProperties%2F-1392619314" anchor-label="forceFallback" id="-1219817860%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="force-fallback.html"><span>force</span><wbr><span><span>Fallback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1219817860%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="force-fallback.html">forceFallback</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1020997160%2FProperties%2F-1392619314" anchor-label="ghostClass" id="1020997160%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ghost-class.html"><span>ghost</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1020997160%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="ghost-class.html">ghostClass</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1563895594%2FProperties%2F-1392619314" anchor-label="group" id="1563895594%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="group.html"><span><span>group</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1563895594%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="group.html">group</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-js-any/index.html">JsAny</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">A group name, or the object form built by <a href="../sortable-group.html">sortableGroup</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1977477367%2FProperties%2F-1392619314" anchor-label="handle" id="-1977477367%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="handle.html"><span><span>handle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1977477367%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="handle.html">handle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1408801439%2FProperties%2F-1392619314" anchor-label="ignore" id="1408801439%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ignore.html"><span><span>ignore</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1408801439%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="ignore.html">ignore</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-298359034%2FProperties%2F-1392619314" anchor-label="invertedSwapThreshold" id="-298359034%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="inverted-swap-threshold.html"><span>inverted</span><wbr><span>Swap</span><wbr><span><span>Threshold</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-298359034%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="inverted-swap-threshold.html">invertedSwapThreshold</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="179527624%2FProperties%2F-1392619314" anchor-label="invertSwap" id="179527624%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="invert-swap.html"><span>invert</span><wbr><span><span>Swap</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="179527624%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="invert-swap.html">invertSwap</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1824809785%2FProperties%2F-1392619314" anchor-label="onAdd" id="-1824809785%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-add.html"><span>on</span><wbr><span><span>Add</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1824809785%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-add.html">onAdd</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-628675813%2FProperties%2F-1392619314" anchor-label="onChoose" id="-628675813%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-choose.html"><span>on</span><wbr><span><span>Choose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-628675813%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-choose.html">onChoose</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-897037109%2FProperties%2F-1392619314" anchor-label="onClone" id="-897037109%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-clone.html"><span>on</span><wbr><span><span>Clone</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-897037109%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-clone.html">onClone</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1817550387%2FProperties%2F-1392619314" anchor-label="onEnd" id="-1817550387%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-end.html"><span>on</span><wbr><span><span>End</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1817550387%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-end.html">onEnd</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1202582746%2FProperties%2F-1392619314" anchor-label="onFilter" id="1202582746%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-filter.html"><span>on</span><wbr><span><span>Filter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1202582746%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-filter.html">onFilter</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1746783201%2FProperties%2F-1392619314" anchor-label="onMove" id="1746783201%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-move.html"><span>on</span><wbr><span><span>Move</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1746783201%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-move.html">onMove</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-move-event/index.html">SortableMoveEvent</a><span class="token punctuation">, </span><span data-unresolved-link="web.events/Event///PointingToDeclaration/">Event</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-js-any/index.html">JsAny</a><span class="token operator">?</span><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1803046222%2FProperties%2F-1392619314" anchor-label="onRemove" id="1803046222%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-remove.html"><span>on</span><wbr><span><span>Remove</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1803046222%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-remove.html">onRemove</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1770732876%2FProperties%2F-1392619314" anchor-label="onSort" id="-1770732876%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-sort.html"><span>on</span><wbr><span><span>Sort</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1770732876%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-sort.html">onSort</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-178002586%2FProperties%2F-1392619314" anchor-label="onStart" id="-178002586%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-start.html"><span>on</span><wbr><span><span>Start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-178002586%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-start.html">onStart</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1266649054%2FProperties%2F-1392619314" anchor-label="onUnchoose" id="-1266649054%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-unchoose.html"><span>on</span><wbr><span><span>Unchoose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1266649054%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-unchoose.html">onUnchoose</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1614908247%2FProperties%2F-1392619314" anchor-label="onUpdate" id="-1614908247%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-update.html"><span>on</span><wbr><span><span>Update</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1614908247%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="on-update.html">onUpdate</a><span class="token operator">: </span><span class="token punctuation">(</span><a href="../-sortable-event/index.html">SortableEvent</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-275742598%2FProperties%2F-1392619314" anchor-label="preventOnFilter" id="-275742598%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="prevent-on-filter.html"><span>prevent</span><wbr><span>On</span><wbr><span><span>Filter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-275742598%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="prevent-on-filter.html">preventOnFilter</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="303221679%2FProperties%2F-1392619314" anchor-label="removeCloneOnHide" id="303221679%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-clone-on-hide.html"><span>remove</span><wbr><span>Clone</span><wbr><span>On</span><wbr><span><span>Hide</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="303221679%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="remove-clone-on-hide.html">removeCloneOnHide</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="12458013%2FProperties%2F-1392619314" anchor-label="setData" id="12458013%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-data.html"><span>set</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="12458013%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="set-data.html">setData</a><span class="token operator">: </span><span class="token punctuation">(</span><span data-unresolved-link="web.data/DataTransfer///PointingToDeclaration/">DataTransfer</span><span class="token punctuation">, </span><span data-unresolved-link="web.html/HTMLElement///PointingToDeclaration/">HTMLElement</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1547128147%2FProperties%2F-1392619314" anchor-label="sort" id="1547128147%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sort.html"><span><span>sort</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1547128147%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="sort.html">sort</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-140167416%2FProperties%2F-1392619314" anchor-label="store" id="-140167416%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="store.html"><span><span>store</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-140167416%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="store.html">store</a><span class="token operator">: </span><a href="../-sortable-store/index.html">SortableStore</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="98244529%2FProperties%2F-1392619314" anchor-label="swapThreshold" id="98244529%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="swap-threshold.html"><span>swap</span><wbr><span><span>Threshold</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="98244529%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="swap-threshold.html">swapThreshold</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1812200833%2FProperties%2F-1392619314" anchor-label="touchStartThreshold" id="1812200833%2FProperties%2F-1392619314" data-filterable-set=":ktjs-sortable/jsMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ktjs-sortable/jsMain" data-filterable-set=":ktjs-sortable/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="touch-start-threshold.html"><span>touch</span><wbr><span>Start</span><wbr><span><span>Threshold</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1812200833%2FProperties%2F-1392619314"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktjs-sortable/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">external </span><span class="token keyword">var </span><a href="touch-start-threshold.html">touchStartThreshold</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
