@@ -84,7 +84,7 @@ npm 包不带 `.d.ts`：声明按 `src/Sortable.js` 写，再与 `@types/sortabl
 ./gradlew kotlinUpgradePackageLock
 ```
 
-`docs` 模块同样是 Kotlin/JS 项目。ktjs-docusaurus 的几个版本写在 `gradle.properties`，因为它们各自带修订号；
+`docs` 模块同样是 Kotlin/JS 项目。ktjs-docusaurus 的几个版本写在 `gradle/libs.versions.toml`，因为它们各自带修订号；
 那里写 SNAPSHOT 时从 `mavenLocal` 解析。kit 的浏览器 bundle 不是 Maven 产物：它以资源形式随 kit 的 klib 走，
 `extractKitBundle` 把它拷到站点的 `static/ktjs-client/`。
 
